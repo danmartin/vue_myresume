@@ -13,7 +13,7 @@ new Vue({
             this.$http.get('/vue_myresume/assets/data/resume.json').then(function(response) {
                 this.resume = response.body; 
                 this.isLoaded = true;
-              });
+            });
         }
     }
 });
