@@ -2,6 +2,12 @@ new Vue({
     el: '#resume_id',
     data: {
         resume: {},
+        urls: {
+            repository: 'https://github.com/danmartin/vue_myresume',
+            word: 'http://pdxdan.com/assets/docs/resume.docx',
+            pdf: 'http://pdxdan.com/assets/docs/resume.pdf',
+            json: 'http://pdxdan.com/assets/data/resume.json'
+        },
         isLoaded: false,
         bool: {0:false,1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:false}
     },
