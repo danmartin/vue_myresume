@@ -97,18 +97,24 @@
                     </div>
                     <div class="col-lg-8 top-exp">
                         <h4 class="white-box heading">Experience</h4>
-                        <div class="white-box row exp entry-card" v-for="attr in resume.work">
+                        <div class="white-box row exp entry-card" v-for="(attr, index) in resume.work">
                             <div class="col-lg-12">
                                 <div class="date-exp">
-                                    {{attr.startDate}} to {{attr.endDate}}
+                                    {{dateFormat(attr.startDate)}} to {{dateFormat(attr.endDate)}}
                                 </div>
                                 <h5>{{attr.company}}</h5>
                                 <div class="small-block"><a :href="attr.website">{{attr.website}}</a></div>
                                 <h6>{{attr.position}}</h6>
                                 <div>{{attr.summary}}</div>
-                                <ul class="m-top">
+                                <ul class="m-top" v-show="bool[index]">
                                     <li v-for="attr2 in attr.highlights">{{attr2}}</li>
                                 </ul>
+
+                                <div class="text-right m-top">
+                                    <button href v-on:click="toggle(index)" class="btn btn-outline-info btn-sm">
+                                        <span>{{status(index)}}</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -116,7 +122,7 @@
                         <div class="white-box row exp entry-card" v-for="attr in resume.education">
                             <div class="col-md-12">
                                 <div class="date-exp">
-                                    {{attr.startDate}} to {{attr.endDate}}
+                                    {{dateFormat(attr.startDate)}} to {{dateFormat(attr.endDate)}}
                                 </div>
                                 <h5>{{attr.institution}}</h5>
                                 <div><strong>{{attr.studyType}}</strong></div>
